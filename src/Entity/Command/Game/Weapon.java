@@ -1,7 +1,7 @@
 package Entity.Command.Game;
 
 public class Weapon {
-	public final int rng, atk, crit, type;
+	public final int atk, crit, type;
 	public final double hit;
 	public final int[] efns;
 	public final String name;
@@ -17,11 +17,10 @@ public class Weapon {
 
 	public final boolean isMagic, isReaver;
 
-	public Weapon(String name, int type, int rng, int atk, int crit, double hit, int[] effectiveness, boolean magic, boolean reaver) {
+	public Weapon(String name, int type, int atk, int crit, double hit, int[] effectiveness, boolean magic, boolean reaver) {
 		this.name = name;
 		this.type = type;
 		this.atk = atk;
-		this.rng = rng;
 		this.crit = crit;
 		this.hit = hit;
 		efns = effectiveness;

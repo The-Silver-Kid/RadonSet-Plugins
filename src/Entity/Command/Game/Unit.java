@@ -16,42 +16,7 @@ public class Unit {
 	public static final int LEVEL = 0, ATTACK = 1, DEFENSE = 2, RESISTANCE = 3, SPEED = 4, SKILL = 5, LUCK = 6, MOVEMENT = 7, HP = 8;
 	public static final int ARMOURED = 0, FLYER = 1, INFANTRY = 2, DRAGON = 3, MOUNTED = 4;
 
-	public Unit(String name, Xlass clas, Weapon wep, boolean isCommander, int[] types) {
-		w = wep;
-		c = clas;
-		nom = name;
-		this.isCommander = isCommander;
-		deathState = "";
-		isType = types;
-	}
-
-	public Unit(String name, Xlass clas, Weapon wep, boolean isCommander, int[] statGains, int[] types) {
-		w = wep;
-		c = clas;
-		nom = name;
-		level = statGains[0];
-		atk = statGains[1];
-		def = statGains[2];
-		res = statGains[3];
-		spd = statGains[4];
-		skl = statGains[5];
-		luck = statGains[6];
-		mov = statGains[7];
-		hp = statGains[8];
-		this.isCommander = isCommander;
-		deathState = "";
-		isType = types;
-	}
-
-	public Unit(String name, Xlass clas, Weapon wep, boolean isCommander, String death) {
-		w = wep;
-		c = clas;
-		nom = name;
-		this.isCommander = isCommander;
-		deathState = death;
-	}
-
-	public Unit(String name, Xlass clas, Weapon wep, boolean isCommander, int[] statGains, String death) {
+	public Unit(String name, Xlass clas, Weapon wep, boolean isCommander, int[] statGains, int[] types, String death) {
 		w = wep;
 		c = clas;
 		nom = name;
@@ -66,6 +31,7 @@ public class Unit {
 		hp = statGains[8];
 		this.isCommander = isCommander;
 		deathState = death;
+		isType = types;
 	}
 
 	public void doLevel() {
@@ -100,7 +66,7 @@ public class Unit {
 
 	public void deathToggle() {
 		if (!dead)
-			System.out.println(deathState);
+			Ugame.textBox.setText(Ugame.textBox.getText() + nom + " : " + deathState + "\n");
 		dead = !dead;
 	}
 
